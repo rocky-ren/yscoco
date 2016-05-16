@@ -7,6 +7,4 @@
 
 - (id)objectForKeyNotNil:(id)aKey;
 
-- (id)objectForKeyNotNill:(id)aKey;
-
 @end
