@@ -8,6 +8,7 @@
 
 #import "UIViewController+Camera.h"
 
+#import "NSString+Other.h"
 
 
 @implementation UIViewController (Camera)

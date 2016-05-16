@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import <UIKit/UIKit.h>
+
 @interface Util : NSObject
 
 // 时间转换成毫秒

@@ -1,6 +1,3 @@
-
-
-
 #import "NSDictionary+Category.h"
 
 @implementation NSDictionary (Category)
