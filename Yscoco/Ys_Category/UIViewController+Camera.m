@@ -40,6 +40,7 @@
         }
     }
 }
+
 // 判断设备是否有摄像头
 - (BOOL)isCameraAvailable {
     return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
@@ -68,16 +69,6 @@
     photoLibrary.delegate = self;
     
     [self presentViewController:photoLibrary animated:YES completion:nil];
-}
-
-// 缩放图片/压缩图片
-- (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize
-{
-    UIGraphicsBeginImageContext(CGSizeMake(image.size.width * scaleSize, image.size.height * scaleSize));
-    [image drawInRect:CGRectMake(0, 0, image.size.width * scaleSize, image.size.height * scaleSize)];
-    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return scaledImage;
 }
 
 - (NSData *)imageToData:(UIImage *)image

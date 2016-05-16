@@ -34,6 +34,10 @@
 
 + (BOOL)responseObject:(NSDictionary *)responseObject;
 
+// 创建图片
 + (UIImage *)createImageWithColor:(UIColor *)color;
+
+// 缩放图片/压缩图片
+- (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize;
 
 @end

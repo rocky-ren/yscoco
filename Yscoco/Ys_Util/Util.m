@@ -88,7 +88,7 @@
         }
         // 昨天
         else if (time < 3600 * 24 * 2) {
-            return @"昨天";
+            return [NSString stringWithFormat:@"昨天 %@", [Util getStrDateByDate:date format:@"HH:mm"]];
         } else {
             return [Util getStrDateByDate:date format:@"MM-dd HH:mm"];
         }
@@ -100,6 +100,7 @@
     return [[responseObject objectForKey:@"returnCode"] intValue] == 0;
 }
 
+// 创建图片
 + (UIImage *)createImageWithColor:(UIColor *)color
 {
     CGRect rect=CGRectMake(0,0, 1, 1);
@@ -110,6 +111,16 @@
     UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return theImage;
+}
+
+// 缩放图片/压缩图片
+- (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize
+{
+    UIGraphicsBeginImageContext(CGSizeMake(image.size.width * scaleSize, image.size.height * scaleSize));
+    [image drawInRect:CGRectMake(0, 0, image.size.width * scaleSize, image.size.height * scaleSize)];
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return scaledImage;
 }
 
 @end

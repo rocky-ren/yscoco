@@ -21,8 +21,7 @@
 // 手机号码验证
 + (BOOL)validateMobile:(NSString *)str
 {
-//    NSString *regex = @"^((13[0-9])|(147)|(15[^4,\\D])|(18[0,5-9]))\\d{8}$";
-    
+    // NSString *regex = @"^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$";
     NSString *regex = @"^[0-9]{11}";
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     return [pred evaluateWithObject:str];
@@ -31,7 +30,7 @@
 // 用户名
 + (BOOL)validateUserName:(NSString *)name
 {
-    NSString *userNameRegex = @"^[a-z0-9]{2,20}+$";
+    NSString *userNameRegex = @"^[A-Za-z0-9]{2,20}+$";
     NSPredicate *userNamePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",userNameRegex];
     return [userNamePredicate evaluateWithObject:name];
 }
@@ -52,69 +51,20 @@
     return [passWordPredicate evaluateWithObject:nickname];
 }
 
-// 验证体重
-+ (BOOL)validateWeight:(NSString *)weight
-{
-    NSString *weight_ = @"^\\d+(\\d|(\\.[1-9]{1,2}))$";
-    NSPredicate *passWordPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",weight_];
-    return [passWordPredicate evaluateWithObject:weight];
-}
-
-// 真实姓名
-+ (BOOL)validateRealName:(NSString *)name
-{
-    NSString *realNameRegex = @"^[\u4E00-\u9FA5]{2,10}+$";
-    NSPredicate *passWordPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",realNameRegex];
-    
-    return [passWordPredicate evaluateWithObject:name];
-}
-
-// 邀请码
-+ (BOOL)validateInviteCode:(NSString *)inviteCode
-{
-    return YES;
-}
-
-// 验证码
-+ (BOOL)validateValidateCode:(NSString *)ValidateCode
-{
-    NSString *userNameRegex = @"^[A-Za-z0-9]{2,20}+$";
-    NSPredicate *userNamePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",userNameRegex];
-    return [userNamePredicate evaluateWithObject:ValidateCode];
-}
-
-// 商品名
-+ (BOOL)validateNickGoodsName:(NSString *)goodsName
-{
-    NSString *goodsNameRegex = @"^[\u4E00-\u9FA5A-Za-z0-9]{2,10}+$";
-    NSPredicate *goodsNamePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",goodsNameRegex];
-    
-    return [goodsNamePredicate evaluateWithObject:goodsName];
-}
-
-// 商品介绍
-+ (BOOL)validateGoodsInfo:(NSString *)goodsInfo
-{
-    NSString *goodsInfoRegex = @"^[\u4E00-\u9FA5A-Za-z0-9]{2,10}+$";
-    NSPredicate *goodsInfoPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",goodsInfoRegex];
-    
-    return [goodsInfoPredicate evaluateWithObject:goodsInfo];
-}
-
 // 纯数字
-+ (BOOL)validateNumber:(NSString *)textString
++ (BOOL)validateNumber:(NSString *)numberString
 {
-    NSString *number = @"^[0-9]+$";
-    NSPredicate *numberPre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",number];
-    return [numberPre evaluateWithObject:textString];
+    NSString *numberRegex = @"^[0-9]+$";
+    NSPredicate *numberPre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",numberRegex];
+    return [numberPre evaluateWithObject:numberString];
 }
 
-// 用英文
-+ (BOOL)validateEnglish:(NSString *)name
+// 纯英文
++ (BOOL)validateEnglish:(NSString *)english
 {
-    NSString *userNameRegex = @"^[A-Za-z]+$";
-    NSPredicate *userNamePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",userNameRegex];
-    return [userNamePredicate evaluateWithObject:name];
+    NSString *englishRegex = @"^[A-Za-z]+$";
+    NSPredicate *userNamePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",englishRegex];
+    return [userNamePredicate evaluateWithObject:english];
 }
 
 /// 座机号码
@@ -133,16 +83,6 @@
     return [numberPre evaluateWithObject:string];
 }
 
-/// 血型
-+ (BOOL)validateBloodType:(NSString *)type
-{
-    if ([type isEqualToString:@"A"] || [type isEqualToString:@"B"] || [type isEqualToString:@"AB"] || [type isEqualToString:@"O"]) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
-
 // 验证是否填写
 + (BOOL)validateInfoWrite:(NSString *)string
 {
@@ -152,20 +92,5 @@
     return YES;
 }
 
-// 设备验证码
-+ (BOOL)validateValidateDeviceCode:(NSString *)ValidateCode
-{
-    NSString *userNameRegex = @"^[A-Za-z0-9]{6}+$";
-    NSPredicate *userNamePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",userNameRegex];
-    return [userNamePredicate evaluateWithObject:ValidateCode];
-}
-
-// 设备ID
-+ (BOOL)validateDeviceID:(NSString *)textString
-{
-    NSString *number = @"^[0-9]{9}+$";
-    NSPredicate *numberPre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",number];
-    return [numberPre evaluateWithObject:textString];
-}
 
 @end

@@ -15,9 +15,6 @@
 
 - (void)showSelect;
 
-// 缩放图片/压缩图片
-- (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize;
-
 - (NSData *)imageToData:(UIImage *)image;
 
 
